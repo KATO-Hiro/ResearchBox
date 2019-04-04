@@ -1,0 +1,108 @@
+- provide(:title, " TOP")
+section#top.top
+  div.container
+    div.row.top-header
+      div.col-4
+        = link_to "ReserchBox", root_path, id: "logo"
+      div.ml-auto
+        ul
+          li
+            = link_to "#" do
+              i.fas.fa-book-open
+              | 使い方
+          li
+            = link_to "#" do
+              i.fas.fa-sign-in-alt
+              | ログイン
+
+    div.row.top-contents
+      div.col-6.col-md-8.contents-left
+        div.text
+          p 「学びを」 まとめよう
+          p 「学びを」 シェアしよう
+        div.description
+          p 「ReserchBox」は読んだ論文を管理・公開するサービスです。
+          p 「ReserchBox」はあなたの「学び」を財産にしてくれるでしょう。
+      div.col-6.col-md-4.contents-right
+        img src="/assets/top1.svg" alt="top-image"
+      div.contents-bottom
+        a.btn.btn-primary.shadow href="#" 新規登録する
+        a.btn.btn-default.shadow href="#" ログインする
+
+section#about
+  div.container
+    div.row.about-contents
+      div.col-6.col-md-8.contents-left
+        div.description
+          p あなたは読んだ論文をきちんと管理できていますか？
+          br
+          p 誰々さんの〇〇年の論文の要点をすぐに思い出せますか？
+          br
+          p 多くの人は紙やpdfファイルを探し、重い腰を上げてもう一度
+            読み直すでしょう。
+          br
+          p 「ReserchBox」を使えば、読んだ論文をすぐに参照できます。
+      div.col-6.col-md-4.contents-right
+        img src="/assets/about2.svg" alt="about-image"
+
+section#posts-index
+  = render 'layouts/header'
+  div.posts-index
+    div.container
+      h2.text-center.font-weight-bold 記事一覧
+      div.row
+        div.col-6.col-lg-4
+          = render 'static_pages/post'
+        div.col-6.col-lg-4
+          = render 'static_pages/post'
+        div.col-6.col-lg-4
+          = render 'static_pages/post'
+
+/* ユーザー詳細ページ */
+section#user-show
+  = render 'layouts/header'
+  div.user-posts
+    div.container
+      div.user-icon
+        img src="/assets/user_dummy.jpeg"
+        h2.text-center.font-weight-bold ユーザー
+      div.user-detail
+        p.post-count 投稿数：
+        p.stock-count ストック数：
+      div role="navigation"
+        ul.nav.nav-tabs
+          li.nab-item
+            = link_to "投稿", "#tab1", data: {toggle: "tab"} , class: "nav-link active"
+          li.nab-item
+            = link_to "ストック", "#tab2", data: {toggle: "tab"}, class: "nav-link"
+
+      div.posts-index.tab-content
+        div.posts#tab1.tab-pane.active
+          div.row
+            div.col-6.col-lg-4
+              = render 'static_pages/post'
+            div.col-6.col-lg-4
+              = render 'static_pages/post'
+            div.col-6.col-lg-4
+              = render 'static_pages/post'
+        div.stocks#tab2.tab-pane
+          div.row
+            div.col-6.col-lg-4
+              = render 'static_pages/post'
+
+
+/* ユーザー一覧ページ */
+section#users-index
+  = render 'layouts/header'
+  div.users-index
+    div.container
+      h2.text-center.font-weight-bold ユーザー一覧
+      div.row
+        div.col-12
+          = render 'static_pages/user'
+          = render 'static_pages/user'
+          = render 'static_pages/user'
+          = render 'static_pages/user'
+/* 記事詳細ページ　*/
+/* ログインページ */
+/* 新規ユーザー登録ページ */
