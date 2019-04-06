@@ -246,7 +246,14 @@ header {
   }
 
   .user-detail {
-    text-align: left;
+    a{
+      color: #333;
+      text-align: left;
+      @include link;
+    }
+    p {
+      transform: translateY(50%);
+    }
   }
   .user-menu {
     display: flex;
