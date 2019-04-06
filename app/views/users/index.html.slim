@@ -1,0 +1,8 @@
+- provide(:title, "Users")
+= render 'layouts/header'
+div.users-index
+  div.container
+    h2.text-center.font-weight-bold ユーザー一覧
+    div.row
+      div.col-12
+        = render @users

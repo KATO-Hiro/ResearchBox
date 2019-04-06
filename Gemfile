@@ -16,6 +16,9 @@ gem 'html2slim'
 gem 'bootstrap', '~> 4.3.1'
 gem 'font-awesome-sass', '~> 5.2.0'
 gem 'jquery-rails'
+gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
