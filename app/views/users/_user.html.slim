@@ -3,7 +3,9 @@ div.row.user.shadow-sm
     img src="/assets/user_dummy.jpeg"
   div.col-10
     div.user-detail
-      p ユーザー
+      = link_to user do
+        p
+          = user.name
     div.user-menu
-      = link_to "投稿一覧を見る", "#", class: "btn btn-primary"
+      = link_to "投稿一覧を見る", user, class: "btn btn-primary"
       = link_to "ストックを見る", "#", class: "btn btn-primary"

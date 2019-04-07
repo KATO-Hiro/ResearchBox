@@ -1,0 +1,31 @@
+- provide(:title, current_user.name)
+= render 'layouts/header'
+div.user-posts
+  div.container
+    div.user-icon
+      img src="/assets/user_dummy.jpeg"
+      h2.text-center.font-weight-bold
+        = @user.name
+    div.user-detail
+      p.post-count 投稿数：
+      p.stock-count ストック数：
+    div role="navigation"
+      ul.nav.nav-tabs
+        li.nab-item
+          = link_to "投稿", "#tab1", data: {toggle: "tab"} , class: "nav-link active"
+        li.nab-item
+          = link_to "ストック", "#tab2", data: {toggle: "tab"}, class: "nav-link"
+
+    div.posts-index.tab-content
+      div.posts#tab1.tab-pane.active
+        div.row
+          div.col-6.col-lg-4
+            = render 'static_pages/post'
+          div.col-6.col-lg-4
+            = render 'static_pages/post'
+          div.col-6.col-lg-4
+            = render 'static_pages/post'
+      div.stocks#tab2.tab-pane
+        div.row
+          div.col-6.col-lg-4
+            = render 'static_pages/post'
