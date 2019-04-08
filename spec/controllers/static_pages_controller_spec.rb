@@ -2,12 +2,14 @@ require 'rails_helper'
 
 RSpec.describe StaticPagesController, type: :controller do
 
-  describe "GET #home" do
+  describe "静的ページの表示機能" do
 
-    it "正しくページが表示される" do
+    it "トップページが正しく表示される" do
       get :home
       expect(response).to have_http_status(:success)
+    end
 
+    it "紹介ページが正しく表示される" do
       get :about
       expect(response).to have_http_status(:success)
     end
