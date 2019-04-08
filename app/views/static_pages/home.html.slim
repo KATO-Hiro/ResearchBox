@@ -13,12 +13,19 @@
             = render 'static_pages/post'
           div.col-6.col-lg-4
             = render 'static_pages/post'
+      -if notice
+        div.notice
+          = flash[:notice]
+      - elsif alert
+        div.alert
+          = flash[:alert]
 - else
   section#top.top
     div.container
       div.row.top-header
         div.col-4
-          = link_to "ReserchBox", root_path, id: "logo"
+          = link_to root_path, id: "logo" do
+            img src="/assets/logo.png"
         div.ml-auto
           ul
             li
@@ -33,7 +40,12 @@
               = link_to new_user_session_path do
                 i.fas.fa-sign-in-alt
                 | ログイン
-
+      -if notice
+        div.notice
+          = flash[:notice]
+      - elsif alert
+        div.alert
+          = flash[:alert]
       div.row.top-contents
         div.col-6.col-md-8.contents-left
           div.text

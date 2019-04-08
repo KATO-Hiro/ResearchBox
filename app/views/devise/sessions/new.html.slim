@@ -1,18 +1,48 @@
-h2
-  | Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
+- provide(:title, "Log in")
+section#login_form
+  div.container
+    div.row.top-header
+          div.col-4
+            = link_to root_path, id: "logo" do
+              img src="/assets/logo.png"
+          div.ml-auto
+            ul
+              li
+                = link_to about_path do
+                  i.fas.fa-book-open
+                  | 使い方
+              li
+                = link_to new_user_registration_path do
+                  i.fas.fa-user-plus
+                  | 新規登録
+              li
+                = link_to new_user_session_path do
+                  i.fas.fa-sign-in-alt
+                  | ログイン
+
+    -if notice
+      div.notice
+        = flash[:notice]
+    - elsif alert
+      div.alert
+        = flash[:alert]
+    h2
+      | ログイン
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field
+        = f.label :email
+        br
+        = f.email_field :email, autofocus: true, autocomplete: "email", value: "test@example.com"
+      .field
+        = f.label :password
+        br
+        = f.password_field :password, autocomplete: "current-password", value: "password"
+      - if devise_mapping.rememberable?
+        .field
+          = f.label :remember_me
+          = f.check_box :remember_me
+      .actions
+        = f.submit "ログイン", class: "btn btn-primary"
+    - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+    = link_to "パスワードを忘れた場合", new_password_path(resource_name), class: "btn btn-default"
     br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    br
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"

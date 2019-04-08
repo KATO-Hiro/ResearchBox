@@ -1,22 +1,49 @@
-h2
-  | Change your password
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  = f.hidden_field :reset_password_token
-  .field
-    = f.label :password, "New password"
-    br
-    - if @minimum_password_length
-      em
-        | (
-        = @minimum_password_length
-        |  characters minimum)
-      br
-    = f.password_field :password, autofocus: true, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation, "Confirm new password"
-    br
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .actions
-    = f.submit "Change my password"
-= render "devise/shared/links"
+- provide(:title, "Reset Password")
+section#forget_password
+  div.container
+    div.row.top-header
+          div.col-4
+            = link_to root_path, id: "logo" do
+              img src="/assets/logo.png"
+          div.ml-auto
+            ul
+              li
+                = link_to about_path do
+                  i.fas.fa-book-open
+                  | 使い方
+              li
+                = link_to new_user_registration_path do
+                  i.fas.fa-user-plus
+                  | 新規登録
+              li
+                = link_to new_user_session_path do
+                  i.fas.fa-sign-in-alt
+                  | ログイン
+    -if notice
+      div.notice
+        = flash[:notice]
+    - elsif alert
+      div.alert
+        = flash[:alert]
+    h2
+      | パスワードの再設定
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      = f.hidden_field :reset_password_token
+      .field
+        = f.label :password, "新しいパスワード"
+        br
+        - if @minimum_password_length
+          em
+            | (少なくとも
+            = @minimum_password_length
+            |  文字以上)
+          br
+        = f.password_field :password, autofocus: true, autocomplete: "新しいパスワード"
+      .field
+        = f.label :password_confirmation, "新しいパスワードの確認"
+        br
+        = f.password_field :password_confirmation, autocomplete: "off"
+      .actions
+        = f.submit "パスワードを再設定する", class: "btn btn-primary"
+
