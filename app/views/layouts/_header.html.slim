@@ -24,3 +24,10 @@ header
           = link_to destroy_user_session_path, class: "nav-link", method: :delete do
             i.fas.fa-sign-out-alt
             | ログアウト
+
+-if notice
+  div.alert.alert-success role="alert"
+    = flash[:notice]
+- elsif alert
+  div.alert
+    = flash[:alert]

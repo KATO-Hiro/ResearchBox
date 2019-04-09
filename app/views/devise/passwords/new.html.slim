@@ -1,11 +1,16 @@
-h2
-  | Forgot your password?
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .actions
-    = f.submit "Send me reset password instructions"
-= render "devise/shared/links"
+- provide(:title, "Forget Password")
+section#forget_password
+  div.container
+    = render 'layouts/header_not_logged_in'
+
+    h2
+      | パスワードを忘れた場合
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .field
+        = f.label :email
+        br
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      .actions
+        = f.submit "パスワードの再設定", class: "btn btn-primary"
+
