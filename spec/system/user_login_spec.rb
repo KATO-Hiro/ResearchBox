@@ -3,24 +3,41 @@ require 'rails_helper'
 include Warden::Test::Helpers
 
 describe "ユーザーログイン機能", type: :system, js: true do
+
   before do
-    FactoryBot.create(:user)
+    @user = FactoryBot.create(:user)
   end
 
-  context "有効な情報を送信" do
-    it "記事一覧ページにリダイレクトされる" do
+  context "有効な情報を送信したとき" do
+    it "記事一覧ページが表示される" do
       visit new_user_session_path
-      fill_in "メールアドレス", with: "test@example.com"
-      fill_in "パスワード", with: "password"
+      fill_in "メールアドレス", with: @user.email
+      fill_in "パスワード", with: @user.password
       click_button "ログイン"
-      expect(current_path).to eq(root_path)
+
+      expect(page).to have_css("div.alert.alert-success", text: "ログインしました。")
       expect(page).to have_content "記事一覧"
+      expect(page).to have_content "#{@user.name}"
     end
   end
 
-  context "無効な情報を送信するとエラーメッセージを返す" do
-    it "" do
+  context "無効な情報を送信したとき" do
+    it "メールアドレスが無効" do
+      visit new_user_session_path
+      fill_in "メールアドレス", with: ""
+      fill_in "パスワード", with: @user.password
+      click_button "ログイン"
 
+      expect(page).to have_css("div.alert")
+    end
+
+    it "パスワードが無効" do
+      visit new_user_session_path
+      fill_in "メールアドレス", with: @user.email
+      fill_in "パスワード", with: ""
+      click_button "ログイン"
+
+      expect(page).to have_css("div.alert")
     end
   end
 end
