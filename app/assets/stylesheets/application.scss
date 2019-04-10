@@ -59,7 +59,7 @@ p {
   #logo {
     @include link;
     img {
-      width: 70%;
+      width: 120%;
       height: auto;
     }
   }
@@ -73,6 +73,7 @@ p {
         margin-right: 0.2rem;
       }
       a {
+        font-size: 1.3rem;
         color: white;
         @include link
       }
@@ -88,6 +89,11 @@ p {
     .text {
       margin-bottom: 3rem;
         p {
+          font-size: 2rem;
+        }
+      }
+    .description {
+      p   {
           font-size: 1.5rem;
         }
       }
@@ -102,8 +108,8 @@ p {
     padding: 1.5rem 0;
     a {
       margin-right: 1rem;
-      width: 120px;
-      font-size: 0.8rem;
+      width: 200px;
+      font-size: 1.5rem;
     }
   }
 }
@@ -126,10 +132,6 @@ p {
 header {
   color: white;
   background: #6c63ff;
-  .fa-user-circle {
-    font-size: 2rem;
-    margin-right: 0.5rem;
-  }
   .navbar-brand {
     margin-left: 1rem;
     width: 30%;
@@ -140,21 +142,19 @@ header {
       border-radius: 50%;
     }
     p {
-      margin-left: 1rem;
+      font-size: 1.5rem;
+      margin-left: 1.5rem;
       transform: translateY(50%);
     }
   }
-  #user{
-    color: white;
-    a{
-    }
-    @include link
+
+  .navbar-nav {
+    display: flex;
+    list-style: none;
   }
-  nav{
-    ul {
-      display: flex;
-      list-style: none;
-    }
+
+  .nav-item {
+    font-size: 1.3rem;
   }
 }
 
@@ -173,6 +173,9 @@ header {
     opacity: 0.5;
   }
   .card-header {
+    p {
+      font-size: 1.2rem;
+    }
     img {
       width: 100%;
       height: auto;
@@ -253,6 +256,7 @@ header {
       @include link;
     }
     p {
+      font-size: 1.5rem;
       transform: translateY(50%);
     }
   }
@@ -260,6 +264,7 @@ header {
     display: flex;
     justify-content: flex-end;
     a {
+      font-size: 1.2rem;
       margin-right: 0.5rem;
       margin-bottom: 0.5rem;
     }

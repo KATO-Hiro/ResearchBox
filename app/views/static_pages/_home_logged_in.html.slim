@@ -1,6 +1,6 @@
 /* ログイン時のトップページ */
 section#posts-index
-  = render 'layouts/header'
+  = render 'layouts/header_logged_in'
   div.posts-index
     div.container
       h2.text-center.font-weight-bold 記事一覧
@@ -11,9 +11,3 @@ section#posts-index
           = render 'static_pages/post'
         div.col-6.col-lg-4
           = render 'static_pages/post'
-    -if notice
-      div.notice
-        = flash[:notice]
-    - elsif alert
-      div.alert
-        = flash[:alert]
