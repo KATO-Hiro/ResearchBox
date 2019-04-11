@@ -279,6 +279,7 @@ header {
   h2 {
     font-weight: bold;
     margin-bottom: 2rem;
+    margin-top: 2rem;
   }
   input {
     width: 80%;
@@ -307,5 +308,29 @@ header {
   .alert {
     color: #ff6347;
     font-weight: bold;
+  }
+}
+
+/* ユーザーアカウント設定画面 */
+.user-settings {
+  padding: 2rem 0;
+  h2 {
+    padding: 0 0 1rem 0;
+  }
+  form {
+    margin-bottom: 3rem;
+  }
+  .form-control {
+    width: 80%;
+    margin-bottom: 1rem;
+  }
+  .field {
+    margin: 0 auto;
+  }
+  .user-icon-settings {
+    img {
+      width: 20%;
+      margin-bottom: 1rem;
+    }
   }
 }
