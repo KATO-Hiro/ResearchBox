@@ -1,19 +1,15 @@
 /* 非ログイン時のヘッダーメニュー */
 div.row.top-header
-  div.col-4
+  div
     = link_to root_path, id: "logo" do
       img src="/assets/logo.png"
   div.ml-auto
     ul
       li
+        = link_to root_path do
+          i.fas.fa-home
+          | トップページ
+      li
         = link_to about_path do
           i.fas.fa-book-open
           | 使い方
-      li
-        = link_to new_user_registration_path do
-          i.fas.fa-user-plus
-          | 新規登録
-      li
-        = link_to new_user_session_path do
-          i.fas.fa-sign-in-alt
-          | ログイン
