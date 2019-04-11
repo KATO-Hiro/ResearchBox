@@ -3,7 +3,10 @@
 div.user-posts
   div.container
     div.user-icon
-      img src="/assets/user_dummy.jpeg"
+      - if @user.avatar.url
+        = image_tag(@user.avatar.url)
+      - else
+        = image_tag("/assets/user_dummy.jpeg")
       h2.text-center.font-weight-bold
         = @user.name
     div.user-detail
