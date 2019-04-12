@@ -25,6 +25,7 @@ RSpec.describe UsersController, type: :controller do
     context "ログイン時" do
       it "ユーザー詳細ページが表示される" do
         sign_in @user
+        expect(@user).to eq(controller.current_user)
         get :show, params: {id: @user.id}
         expect(response).to have_http_status(:success)
       end

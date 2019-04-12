@@ -50,6 +50,7 @@ p {
 /* topセクション */
 .top {
   background: linear-gradient(to right, #83a4d4, #b6fbff);
+  height: 100vh;
   color: white;
 }
   /* ヘッダー部分 */
@@ -105,7 +106,7 @@ p {
   }
   .contents-bottom {
     margin: 0 auto;
-    padding: 1.5rem 0;
+    padding: 3rem 0;
     a {
       margin-right: 1rem;
       width: 200px;
@@ -119,6 +120,11 @@ p {
   padding: 3rem 1rem;
   .contents-left {
     margin-bottom: 2rem;
+    .description {
+      p {
+        font-size: 1.2rem;
+      }
+    }
   }
   .contents-right {
     padding: 1rem 0 0 0;
@@ -147,12 +153,10 @@ header {
       transform: translateY(50%);
     }
   }
-
   .navbar-nav {
     display: flex;
     list-style: none;
   }
-
   .nav-item {
     font-size: 1.3rem;
   }
@@ -215,7 +219,7 @@ header {
 
 /* ユーザー詳細ページ */
 .user-icon {
-  padding: 1rem 0;
+  padding: 2rem 0;
   display:flex;
   justify-content: center;
   img {
@@ -238,6 +242,14 @@ header {
   padding: 2rem 0;
   h2 {
     padding: 0 0 1rem 0;
+  }
+  .pagination-wrapper {
+    padding: 3rem;
+    text-align: center;
+    nav {
+      width: 200px;
+      margin: 0 auto;
+    }
   }
 }
 
@@ -277,12 +289,12 @@ header {
   background: linear-gradient(to right, #83a4d4, #b6fbff);
   color: rgba(255,255,255,0.9);
   h2 {
+    text-align: center;
     font-weight: bold;
     margin-bottom: 2rem;
     margin-top: 2rem;
   }
   input {
-    width: 80%;
     margin-bottom: 1rem;
   }
   .field {
@@ -314,23 +326,33 @@ header {
 /* ユーザーアカウント設定画面 */
 .user-settings {
   padding: 2rem 0;
-  h2 {
-    padding: 0 0 1rem 0;
-  }
-  form {
-    margin-bottom: 3rem;
+  .action {
+    input {
+      margin-bottom: 1rem;
+    }
   }
   .form-control {
-    width: 80%;
     margin-bottom: 1rem;
   }
   .field {
     margin: 0 auto;
   }
   .user-icon-settings {
+    width: 300px;
+    margin: 0 auto;
+    .user-icon {
+      width: 300px;
+      margin: 0 auto;
+    }
     img {
-      width: 20%;
-      margin-bottom: 1rem;
+      margin: -2rem 0 -1rem 0;
+      width: 50%;
+      border-radius: 50%;
     }
   }
+}
+
+.form-wrapper {
+  width: 70%;
+  margin: 0 auto;
 }
