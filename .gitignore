@@ -28,3 +28,4 @@
 # other files
 .DS_Store
 .rspec
+/public/uploads/tmp
