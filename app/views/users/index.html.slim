@@ -6,3 +6,5 @@ div.users-index
     div.row
       div.col-12
         = render @users
+        div.pagination-wrapper
+          = paginate @users

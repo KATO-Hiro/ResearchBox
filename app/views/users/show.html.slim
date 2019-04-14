@@ -2,12 +2,18 @@
 = render 'layouts/header_logged_in'
 div.user-posts
   div.container
+    h2
+      = @user.name
     div.user-icon
-      img src="/assets/user_dummy.jpeg"
-      h2.text-center.font-weight-bold
-        = @user.name
+      - if @user.avatar.url
+        = image_tag(@user.avatar.url)
+      - else
+        = image_tag("/assets/user_dummy.jpeg")
     div.user-detail
-      p.post-count 投稿数：
+      p.post-count
+        - if @user.posts.any?
+          |投稿数：
+          = @user.posts.count
       p.stock-count ストック数：
     div role="navigation"
       ul.nav.nav-tabs
@@ -19,13 +25,10 @@ div.user-posts
     div.posts-index.tab-content
       div.posts#tab1.tab-pane.active
         div.row
-          div.col-6.col-lg-4
-            = render 'static_pages/post'
-          div.col-6.col-lg-4
-            = render 'static_pages/post'
-          div.col-6.col-lg-4
-            = render 'static_pages/post'
+          - if @user.posts.any?
+            = render @posts
       div.stocks#tab2.tab-pane
         div.row
           div.col-6.col-lg-4
-            = render 'static_pages/post'
+    div.pagination-wrapper
+      = paginate @posts

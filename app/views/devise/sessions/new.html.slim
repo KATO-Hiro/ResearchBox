@@ -2,30 +2,30 @@
 section#login_form
   div.container
     = render 'layouts/header_not_logged_in'
-
     -if notice
       div.notice
         = flash[:notice]
     - elsif alert
       div.alert
         = flash[:alert]
-    h2
-      | ログイン
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .field
-        = f.label :email
-        br
-        = f.email_field :email, autofocus: true, autocomplete: "email", value: "test@example.com"
-      .field
-        = f.label :password
-        br
-        = f.password_field :password, autocomplete: "current-password", value: "password"
-      - if devise_mapping.rememberable?
+    div.form-wrapper
+      h2
+        | ログイン
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field
-          = f.label :remember_me
-          = f.check_box :remember_me
-      .actions
-        = f.submit "ログイン", class: "btn btn-primary"
-    - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
-    = link_to "パスワードを忘れた場合", new_password_path(resource_name), class: "btn btn-default"
-    br
+          = f.label :email
+          br
+          = f.email_field :email, autofocus: true, autocomplete: "email", value: "test@example.com", class: "form-control"
+        .field
+          = f.label :password
+          br
+          = f.password_field :password, autocomplete: "current-password", value: "password", class: "form-control"
+        - if devise_mapping.rememberable?
+          .field
+            = f.label :remember_me
+            = f.check_box :remember_me
+        .actions
+          = f.submit "ログイン", class: "btn btn-primary form-control"
+      - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+      = link_to "パスワードを忘れた場合", new_password_path(resource_name), class: "btn btn-default form-control"
+      br

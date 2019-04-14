@@ -1,0 +1,49 @@
+- provide(:title, @post.title)
+= render 'layouts/header_logged_in'
+div.posts-show
+  div.container
+    h2.post-title
+      = @post.title
+    div.post-info
+      h3.author
+        = @post.author
+      h3.published-year
+        = @post.year.year
+    hr
+    div.row.post-contents
+      div.col-sm-6.col-lg-4.content-column
+        div.contents-header
+          p どんな論文？
+        div.contents-main
+          p
+           = @post.abstract
+      div.col-sm-6.col-lg-4.content-column
+        div.contents-header
+          p 先行研究と比べてどこがすごい？
+        div.contents-main
+          p
+           = @post.superiority
+      div.col-sm-6.col-lg-4.content-column
+        div.contents-header
+          p 技術や手法で重要な点はどこ？
+        div.contents-main
+          p
+           = @post.technique
+      div.col-sm-6.col-lg-4.content-column
+        div.contents-header
+          p どうやって有効だと検証した？
+        div.contents-main
+          p
+           = @post.verification
+      div.col-sm-6.col-lg-4.content-column
+        div.contents-header
+          p 議論はある？
+        div.contents-main
+          p
+           = @post.discussion
+      div.col-sm-6.col-lg-4.content-column
+        div.contents-header
+          p 次に読むべき論文は？
+        div.contents-main
+          p
+           = @post.suggestion

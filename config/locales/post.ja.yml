@@ -1,0 +1,31 @@
+ja:
+  date:
+    order:
+      - :day
+      - :month
+      - :year
+  activerecord:
+    models:
+      post: "投稿"
+    attributes:
+      post:
+        title: "タイトル"
+        author: "著者"
+        year: "出版年"
+        abstract: "どんな論文？"
+        superiority: "先行研究と比べてどこがすごい？"
+        technique: "技術や手法で重要な点はどこ？"
+        verification: "どうやって有効だと検証した？"
+        discussion: "議論はある？"
+        suggestion: "次に読むべき論文は？"
+    errors:
+      models:
+        post:
+          attributes:
+            title:
+              blank: "が入力されていません。"
+              too_long: "は%{count}文字以下に設定して下さい。"
+            author:
+              blank: "が入力されていません。"
+            abstract:
+              blank: "が入力されていません。"

@@ -1,0 +1,48 @@
+- provide(:title, "Edit Post")
+= render 'layouts/header_logged_in'
+div.posts-edit
+  div.container
+    h2
+      | 投稿の編集
+    div.form-wrapper
+      = form_with model: @post, local: true do |f|
+        = render 'shared/error_messages', object: f.object
+        div.field
+          = f.label :title
+          br
+          = f.text_field :title
+        div.field
+          = f.label :author
+          br
+          = f.text_field :author
+        div.field
+          = f.label :year
+          br
+          = f.date_select :year, start_year: 1960 , end_year: Time.zone.now.year,  discard_day: true, discard_month: true
+        div.field
+          = f.label :abstract
+          br
+          = f.text_field :abstract
+        div.field
+          = f.label :superiority
+          br
+          = f.text_field :superiority
+        div.field
+          = f.label :technique
+          br
+          = f.text_field :technique
+        div.field
+          = f.label :verification
+          br
+          = f.text_field :verification
+        div.field
+          = f.label :discussion
+          br
+          = f.text_field :discussion
+        div.field
+          = f.label :suggestion
+          br
+          = f.text_field :suggestion
+        div.actions
+          = f.submit "更新する", class: "btn btn-primary form-control"
+      = button_to "投稿を削除する", post_path, data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger form-control"

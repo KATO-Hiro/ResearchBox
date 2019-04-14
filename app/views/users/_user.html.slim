@@ -1,6 +1,9 @@
 div.row.user.shadow-sm
   div.col-2
-    img src="/assets/user_dummy.jpeg"
+    - if user.avatar.url
+      = image_tag(user.avatar.url)
+    - else
+      = image_tag("/assets/user_dummy.jpeg")
   div.col-10
     div.user-detail
       = link_to user do

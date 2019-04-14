@@ -1,15 +1,23 @@
 - provide(:title, " About")
-div.container
-  div.row.about-contents
-    div.col-6.col-md-8.contents-left
-      div.description
-        p あなたは読んだ論文をきちんと管理できていますか？
-        br
-        p 誰々さんの〇〇年の論文の要点をすぐに思い出せますか？
-        br
-        p 多くの人は紙やpdfファイルを探し、重い腰を上げてもう一度
-          読み直すでしょう。
-        br
-        p 「ReserchBox」を使えば、読んだ論文をすぐに参照できます。
-    div.col-6.col-md-4.contents-right
-      img src="/assets/about2.svg" alt="about-image"
+section#about.top
+  div.container
+    = render 'layouts/header_not_logged_in'
+      -if notice
+        div.notice
+          = flash[:notice]
+      - elsif alert
+        div.alert
+          = flash[:alert]
+    div.row.about-contents
+      div.col-7.contents-left
+        div.description
+          p あなたは読んだ論文をきちんと管理できていますか？
+          br
+          p 誰々さんの〇〇年の論文の要点をすぐに思い出せますか？
+          br
+          p 多くの人は紙やpdfファイルを探し、重い腰を上げてもう一度
+            読み直すでしょう。
+          br
+          p 「ReserchBox」を使えば、読んだ論文をすぐに参照できます。
+      div.col-5.contents-right
+        img src="/assets/about2.svg" alt="about-image"

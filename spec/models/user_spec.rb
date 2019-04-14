@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  include CarrierWave::Test::Matchers
 
   before do
     @user = FactoryBot.create(:user)
@@ -15,6 +16,15 @@ RSpec.describe User, type: :model do
       @user.email = "TEst@ExAMPle.com"
       @user.save!
       expect(@user.reload.email).to eq "test@example.com"
+    end
+
+    it "指定した形式でアバターが設定される" do
+      formats = %w(jpg jpeg gif png)
+      formats.each do |format|
+        image_path = File.join(Rails.root, "spec/sample_avatars/sample.#{format}")
+        user_with_avatar = FactoryBot.build(:user, email: "avatar@example.com" , avatar: File.open(image_path))
+        expect(user_with_avatar).to be_valid
+      end
     end
   end
 
@@ -47,6 +57,12 @@ RSpec.describe User, type: :model do
     it "パスワードの最小長さ" do
       @user.password = @user.password_confirmation = "a"*5
       expect(@user).not_to be_valid
+    end
+
+    it "アバター画像の形式" do
+      image_path = File.join(Rails.root, "spec/sample_avatars/sample.rb")
+      user_with_invalid_avatar = FactoryBot.build(:user, email: "avatar_invalid@example.com" , avatar: File.open(image_path))
+      expect(user_with_invalid_avatar).not_to be_valid
     end
   end
 end

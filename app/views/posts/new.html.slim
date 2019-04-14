@@ -1,0 +1,47 @@
+- provide(:title, "New Post")
+= render 'layouts/header_logged_in'
+div.posts-new
+  div.container
+    h2
+      | 新規投稿
+    div.form-wrapper
+      = form_with model: @post, local: true do |f|
+        = render 'shared/error_messages', object: f.object
+        div.field
+          = f.label :title
+          br
+          = f.text_field :title
+        div.field
+          = f.label :author
+          br
+          = f.text_field :author
+        div.field
+          = f.label :year
+          br
+          = f.date_select :year, start_year: 1960 , end_year: Time.zone.now.year,  discard_day: true, discard_month: true
+        div.field
+          = f.label :abstract
+          br
+          = f.text_field :abstract
+        div.field
+          = f.label :superiority
+          br
+          = f.text_field :superiority
+        div.field
+          = f.label :technique
+          br
+          = f.text_field :technique
+        div.field
+          = f.label :verification
+          br
+          = f.text_field :verification
+        div.field
+          = f.label :discussion
+          br
+          = f.text_field :discussion
+        div.field
+          = f.label :suggestion
+          br
+          = f.text_field :suggestion
+        div.actions
+          = f.submit "投稿する", class: "btn btn-primary form-control"

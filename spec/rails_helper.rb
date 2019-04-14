@@ -7,6 +7,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'devise'
+require 'carrierwave/test/matchers'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -36,9 +37,19 @@ Capybara.server_host = Socket.ip_address_list.detect{|addr| addr.ipv4_private?}.
 Capybara.server_port = 3001
 
 Capybara.register_driver :selenium_remote do |app|
-  url = "http://chrome:4444/wd/hub"
-  opts = { desired_capabilities: :chrome, browser: :remote, url: url }
-  driver = Capybara::Selenium::Driver.new(app, opts)
+  driver = Capybara::Selenium::Driver.new(
+      app,
+      browser: :remote,
+        desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
+            chromeOptions: {
+                args: [
+                    "window-size=800,500",
+                    "headless",
+                ]
+            }
+        ),
+        url: "http://chrome:4444/wd/hub",
+    )
 end
 
 RSpec.configure do |config|
