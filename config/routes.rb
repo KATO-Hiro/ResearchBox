@@ -8,4 +8,5 @@ Rails.application.routes.draw do
     sessions:      'users/sessions',
   }
   resources :users, only: [:index, :show]
+  resources :posts, only: [:show, :new, :edit, :create, :destroy]
 end

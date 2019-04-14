@@ -1,0 +1,34 @@
+div.col-6.col-lg-4
+  div.card.shadow id="post-#{post.id}"
+    div.card-header
+      div.row
+        div.col-4
+          - if post.user.avatar.url.present?
+            = image_tag(post.user.avatar.url)
+          - else
+            img src="/assets/user_dummy.jpeg"
+        div.col-8
+            p.user-name
+              = link_to post.user.name, user_path
+    div.card-body
+      img src="/assets/about1.svg"
+      h4.card-title
+        = post.title
+      div.subtitle
+        h6.author
+          = post.author
+        h6.year
+          = post.year.year
+    div.card-footer
+      p.card-text
+        = truncate(post.abstract, length: 40)
+      div.footer-menu
+        = link_to "#", class: "btn btn-primary" do
+          i.fas.fa-book-open
+            | もっと読む
+        - if post.user == current_user
+          = link_to edit_post_path do
+            i.far.fa-edit
+        - else
+          = link_to "#" do
+            i.fas.fa-arrow-alt-circle-down

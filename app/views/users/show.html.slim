@@ -10,7 +10,10 @@ div.user-posts
       h2.text-center.font-weight-bold
         = @user.name
     div.user-detail
-      p.post-count 投稿数：
+      p.post-count
+        - if @user.posts.any?
+          |投稿数：
+          = @user.posts.count
       p.stock-count ストック数：
     div role="navigation"
       ul.nav.nav-tabs
@@ -22,13 +25,9 @@ div.user-posts
     div.posts-index.tab-content
       div.posts#tab1.tab-pane.active
         div.row
-          div.col-6.col-lg-4
-            = render 'static_pages/post'
-          div.col-6.col-lg-4
-            = render 'static_pages/post'
-          div.col-6.col-lg-4
-            = render 'static_pages/post'
+          - if @user.posts.any?
+            = render @posts
+            = paginate @posts
       div.stocks#tab2.tab-pane
         div.row
           div.col-6.col-lg-4
-            = render 'static_pages/post'
