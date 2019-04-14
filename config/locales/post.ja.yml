@@ -24,7 +24,8 @@ ja:
           attributes:
             title:
               blank: "が入力されていません。"
+              too_long: "は%{count}文字以下に設定して下さい。"
             author:
               blank: "が入力されていません。"
-              too_short: "は%{count}文字以上に設定して下さい。"
-              too_long: "は%{count}文字以下に設定して下さい。"
+            abstract:
+              blank: "が入力されていません。"

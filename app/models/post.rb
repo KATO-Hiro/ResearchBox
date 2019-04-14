@@ -5,6 +5,6 @@ class Post < ApplicationRecord
   validates :user_id, presence: true
   validates :author, presence: true
   validates :year, presence: true
-  validates :title, presence: true
-
+  validates :title, presence: true, length: {maximum: 50}
+  validates :abstract, presence: true
 end

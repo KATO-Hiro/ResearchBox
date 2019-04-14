@@ -15,7 +15,7 @@ describe "ユーザーログイン機能", type: :system, js: true do
       fill_in "パスワード", with: @user.password
       click_button "ログイン"
 
-      expect(page).to have_css("div.alert.alert-success", text: "ログインしました。")
+      expect(page).to have_css("div.alert.alert-success")
       expect(page).to have_content "記事一覧"
       expect(page).to have_content "#{@user.name}"
     end

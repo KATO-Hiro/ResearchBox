@@ -2,13 +2,13 @@
 = render 'layouts/header_logged_in'
 div.user-posts
   div.container
+    h2
+      = @user.name
     div.user-icon
       - if @user.avatar.url
         = image_tag(@user.avatar.url)
       - else
         = image_tag("/assets/user_dummy.jpeg")
-      h2.text-center.font-weight-bold
-        = @user.name
     div.user-detail
       p.post-count
         - if @user.posts.any?
@@ -27,7 +27,8 @@ div.user-posts
         div.row
           - if @user.posts.any?
             = render @posts
-            = paginate @posts
       div.stocks#tab2.tab-pane
         div.row
           div.col-6.col-lg-4
+    div.pagination-wrapper
+      = paginate @posts

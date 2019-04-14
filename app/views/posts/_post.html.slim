@@ -13,7 +13,7 @@ div.col-6.col-lg-4
     div.card-body
       img src="/assets/about1.svg"
       h4.card-title
-        = post.title
+        = link_to post.title, post_path(post)
       div.subtitle
         h6.author
           = post.author
@@ -23,11 +23,11 @@ div.col-6.col-lg-4
       p.card-text
         = truncate(post.abstract, length: 40)
       div.footer-menu
-        = link_to "#", class: "btn btn-primary" do
+        = link_to post_path(post), class: "btn btn-primary" do
           i.fas.fa-book-open
             | もっと読む
         - if post.user == current_user
-          = link_to edit_post_path do
+          = link_to edit_post_path(post)  do
             i.far.fa-edit
         - else
           = link_to "#" do
