@@ -9,9 +9,12 @@ div.col-6.col-lg-4
             img src="/assets/user_dummy.jpeg"
         div.col-8
             p.user-name
-              = link_to post.user.name, user_path
+              = link_to post.user.name, user_path(post.user)
     div.card-body
-      img src="/assets/about1.svg"
+      - if post.figures.any?
+        = image_tag(post.figures.first.url)
+      - else
+        = image_tag "/assets/about1.svg"
       h4.card-title
         = link_to post.title, post_path(post)
       div.subtitle

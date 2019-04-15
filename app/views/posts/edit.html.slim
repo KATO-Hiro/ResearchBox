@@ -7,42 +7,47 @@ div.posts-edit
     div.form-wrapper
       = form_with model: @post, local: true do |f|
         = render 'shared/error_messages', object: f.object
+        div.field.post-image-settings
+          = f.label :figures
+          br
+          = f.file_field :figures, multiple: true
         div.field
           = f.label :title
           br
-          = f.text_field :title
+          = f.text_field :title, class: "form-control"
+        div.post-detail
+          div.field
+            = f.label :author
+            br
+            = f.text_field :author, class: "form-control"
+          div.field
+            = f.label :year
+            br
+            = f.date_select :year, start_year: 1960 , end_year: Time.zone.now.year,  discard_day: true, discard_month: true
         div.field
-          = f.label :author
-          br
-          = f.text_field :author
-        div.field
-          = f.label :year
-          br
-          = f.date_select :year, start_year: 1960 , end_year: Time.zone.now.year,  discard_day: true, discard_month: true
-        div.field
-          = f.label :abstract
-          br
-          = f.text_field :abstract
+        = f.label :abstract
+        br
+        = f.text_area :abstract, rows: 5, class: "form-control"
         div.field
           = f.label :superiority
           br
-          = f.text_field :superiority
+          = f.text_area :superiority, rows: 5, class: "form-control"
         div.field
           = f.label :technique
           br
-          = f.text_field :technique
+          = f.text_area :technique, rows: 5, class: "form-control"
         div.field
           = f.label :verification
           br
-          = f.text_field :verification
+          = f.text_area :verification, rows: 5, class: "form-control"
         div.field
           = f.label :discussion
           br
-          = f.text_field :discussion
+          = f.text_area :discussion, rows: 5, class: "form-control"
         div.field
           = f.label :suggestion
           br
-          = f.text_field :suggestion
+          = f.text_area :suggestion, rows: 5, class: "form-control"
         div.actions
           = f.submit "更新する", class: "btn btn-primary form-control"
       = button_to "投稿を削除する", post_path, data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger form-control"

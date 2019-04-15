@@ -4,6 +4,11 @@ div.posts-show
   div.container
     h2.post-title
       = @post.title
+    div.post-figures.row
+      - if @post.figures.any?
+        - @post.figures.each do |figure|
+          div.col-6.col-md-3
+            = image_tag(figure.url)
     div.post-info
       h3.author
         = @post.author

@@ -9,26 +9,29 @@ div.user-posts
         = image_tag(@user.avatar.url)
       - else
         = image_tag("/assets/user_dummy.jpeg")
-    div.user-detail
-      p.post-count
-        - if @user.posts.any?
-          |投稿数：
-          = @user.posts.count
-      p.stock-count ストック数：
+    - if current_user == @user
+      div.user-menu
+        = link_to edit_user_registration_path do
+          i.fas.fa-user-cog
+          | アカウント設定
+        = link_to new_post_path do
+          i.fas.fa-plus-circle
+          | 投稿する
+        hr
     div role="navigation"
       ul.nav.nav-tabs
         li.nab-item
-          = link_to "投稿", "#tab1", data: {toggle: "tab"} , class: "nav-link active"
+          = link_to "投稿した記事(#{@user.posts.count})", "#tab1", data: {toggle: "tab"} , class: "nav-link active"
         li.nab-item
-          = link_to "ストック", "#tab2", data: {toggle: "tab"}, class: "nav-link"
+          = link_to "ストックした記事", "#tab2", data: {toggle: "tab"}, class: "nav-link"
 
     div.posts-index.tab-content
       div.posts#tab1.tab-pane.active
         div.row
           - if @user.posts.any?
             = render @posts
+        div.pagination-wrapper
+          = paginate @posts
       div.stocks#tab2.tab-pane
         div.row
           div.col-6.col-lg-4
-    div.pagination-wrapper
-      = paginate @posts

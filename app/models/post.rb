@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  mount_uploaders :figures, FigureUploader
   belongs_to :user
   default_scope -> { order(created_at: :desc) }
 

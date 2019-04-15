@@ -3,11 +3,8 @@ section#posts-index
   = render 'layouts/header_logged_in'
   div.posts-index
     div.container
-      h2.text-center.font-weight-bold 記事一覧
+      h2 記事一覧
       div.row
-        div.col-6.col-lg-4
-          = render 'static_pages/post'
-        div.col-6.col-lg-4
-          = render 'static_pages/post'
-        div.col-6.col-lg-4
-          = render 'static_pages/post'
+        = render @posts
+      div.pagination-wrapper
+        = paginate @posts
