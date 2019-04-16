@@ -32,6 +32,8 @@ div.col-6.col-lg-4
         - if post.user == current_user
           = link_to edit_post_path(post)  do
             i.far.fa-edit
+          = link_to post_path(post), data: { confirm: "Are you sure?" }, method: :delete do
+            i.far.fa-trash-alt
         - else
           = link_to "#" do
             i.fas.fa-arrow-alt-circle-down

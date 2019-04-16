@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find_by(id: params[:id])
     if @post.update_attributes(post_params)
       flash[:notice] = "記事を編集しました。"
-      redirect_to current_user
+      redirect_to root_path
     else
       render 'posts/edit'
     end
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find_by(id: params[:id])
     @post.destroy
     flash[:notice] = "記事を削除しました。"
-    redirect_to current_user
+    redirect_to root_path
   end
 
   private

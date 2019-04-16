@@ -190,7 +190,7 @@ header {
     @include pagination;
   }
   .search-form {
-    width: 30%;
+    width: 100%;
   }
   .posts-menu {
     margin-right: 1rem;
@@ -278,15 +278,11 @@ header {
     display: flex;
     justify-content: flex-end;
   }
-  .fa-arrow-alt-circle-down {
-    margin-left: 0.8rem;
+  .fa-edit, .fa-trash-alt, .fa-arrow-alt-circle-down {
+    padding-top: 0.3rem;
+    margin-left: 0.5rem;
     color: #333;
-    font-size: 2rem;
-  }
-  .fa-edit {
-    margin-left: 0.8rem;
-    color: #333;
-    font-size: 2rem;
+    font-size: 1.8rem;
     @include link
   }
 }
@@ -492,18 +488,45 @@ header {
 .posts-show {
   .post-title {
     font-size: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
-  .post-figures {
-    width: 90%;
-    margin: 0 auto;
-    img {
-      width: 90%;
+  .post-owner-menu {
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 2rem;
+    a {
+      margin-right: 1rem;
+      color: #333;
+      @include link;
     }
   }
+  .post-figures {
+    width: 100%;
+    margin: 0 auto;
+    background: #d3d3d3;
+    text-align: center;
+    .slide {
+      width: 100%;
+      margin: 0 auto;
+      padding-bottom: 3.5rem;
+      .carousel-indicators {
+        & li {
+          border-radius: 50%;
+          margin: 1px 3px;
+          height: 10px;
+          max-width: 10px;
+        }
+      }
+    }
+  }
+  hr {
+    border-width: 2px;
+  }
   .post-info {
-    padding-top: 2rem;
     width: 95%;
+    padding-bottom: 1rem;
     margin: 0 auto;
     display:flex;
     justify-content: space-between;
@@ -515,6 +538,7 @@ header {
     }
   }
   .post-contents {
+    padding: 1rem 0;
     .content-column {
       margin-bottom: 2rem;
     }

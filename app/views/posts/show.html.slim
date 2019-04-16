@@ -4,16 +4,33 @@ div.posts-show
   div.container
     h2.post-title
       = @post.title
-    div.post-figures.row
-      - if @post.figures.any?
-        - @post.figures.each do |figure|
-          div.col-6.col-md-3
-            = image_tag(figure.url)
+
+    - if @post.user == current_user
+      div.post-owner-menu
+        = link_to edit_post_path(@post)  do
+          i.far.fa-edit
+        = link_to post_path(@post), data: { confirm: "Are you sure?" }, method: :delete do
+          i.far.fa-trash-alt
+    - else
+      = link_to "#" do
+        i.fas.fa-arrow-alt-circle-down
     div.post-info
       h3.author
         = @post.author
       h3.published-year
         = @post.year.year
+    div.post-figures.row
+      - if @post.figures.any?
+        div#carouselControls.carousel.slide
+          ol.carousel-indicators
+            - @post.figures.each_with_index do |figure, n|
+              li data-target="#carouselControls" data-slide-to="#{n}" class="#{'active' if n==0}"
+          div.carousel-inner role="listbox"
+              div.carousel-item.active
+                = image_tag(@post.figures.first.url)
+              - @post.figures.drop(1).each do |figure|
+                div.carousel-item
+                  = image_tag(figure.url)
     hr
     div.row.post-contents
       div.col-sm-6.col-lg-4.content-column

@@ -4,7 +4,7 @@ class FigureUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
   include CarrierWave::RMagick
 
-  process resize_to_fit: [200, 200]
+  process resize_to_fill: [400, 400]
   # Choose what kind of storage to use for this uploader:
   # storage :fog
   if Rails.env.development?
