@@ -1,10 +1,34 @@
 /* ログイン時のトップページ */
-section#posts-index
-  = render 'layouts/header_logged_in'
-  div.posts-index
-    div.container
-      h2 記事一覧
-      div.row
+= render 'layouts/header_logged_in'
+div.posts-index#posts-index
+  div.container
+    h2 記事一覧
+    div.posts-menu
+      div.sort-menu.btn-group
+        button.btn.btn-primary.dropdown-toggle type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+          | ソートする
+        div.dropdown-menu
+          p.dropdown-item
+            = sort_link(@search, :created_at, default_order: :desc)
+          p.dropdown-item
+            = sort_link(@search, :year)
+      div.search-form
+        = search_form_for @search do |f|
+          div.form-group.search-box
+            = f.search_field :title_or_author_cont , placeholder: "記事を検索...", url: root_path, class: "form-control"
+            = f.submit class: "btn btn-primary"
+            div.redo
+              = link_to root_path do
+                i.fas.fa-redo-alt
+
+    div.row
+      - if @search_posts.any?
+        = render @search_posts
+      - else
         = render @posts
-      div.pagination-wrapper
+
+    div.pagination-wrapper
+      - if @search_posts.any?
+        = paginate @search_posts
+      - else
         = paginate @posts

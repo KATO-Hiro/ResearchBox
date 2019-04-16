@@ -32,6 +32,8 @@ ja:
         verification: "どうやって有効だと検証した？"
         discussion: "議論はある？"
         suggestion: "次に読むべき論文は？"
+        created_at: "投稿した日"
+        updated_at: "更新した日"
     errors:
       models:
         post:

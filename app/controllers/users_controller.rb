@@ -3,6 +3,8 @@ before_action :authenticate_user!
 
   def index
     @users = User.page(params[:page]).per(6)
+    @search = User.ransack(params[:q])
+    @search_users = @search.result.page(params[:page]).per(6)
   end
 
   def show

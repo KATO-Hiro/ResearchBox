@@ -189,6 +189,43 @@ header {
   .pagination-wrapper {
     @include pagination;
   }
+  .search-form {
+    width: 30%;
+  }
+  .posts-menu {
+    margin-right: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    .sort-menu {
+      margin-right: 1rem;
+      height: 2.4rem;
+    }
+    .dropdown-item {
+      a {
+        color: #333;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      &:hover {
+        background: #d3d3d3;
+      }
+    }
+  }
+  .search-box {
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    a {
+      color: #333;
+      @include link;
+      .fa-redo-alt {
+        padding-top: 0.2rem;
+        margin-left: 1rem;
+        font-size: 2rem;
+      }
+    }
+  }
 }
 .card {
   margin-bottom: 1rem;
@@ -299,6 +336,23 @@ header {
   .pagination-wrapper {
     @include pagination;
   }
+  .search-box {
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    .form-control {
+      width: 30%;
+    }
+    a {
+      color: #333;
+      @include link;
+      .fa-redo-alt {
+        padding-top: 0.2rem;
+        margin: 0 1rem;
+        font-size: 2rem;
+      }
+    }
+  }
 }
 
 .user {
@@ -336,6 +390,7 @@ header {
 #signup_form, #login_form, #forget_password {
   padding-bottom: 3rem;
   background: linear-gradient(to right, #83a4d4, #b6fbff);
+  height: 100vh;
   color: rgba(255,255,255,0.9);
   h2 {
     text-align: center;
