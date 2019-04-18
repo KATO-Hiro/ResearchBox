@@ -34,9 +34,9 @@ header
             i.fas.fa-sign-out-alt
             | ログアウト
 
--if notice
-  div.alert.alert-success role="alert"
-    = flash[:notice]
-- elsif alert
-  div.alert.alert-danger role="alert"
-    = flash[:alert]
+  -if notice
+    div.alert.alert-success role="alert"
+      = flash[:notice]
+  - elsif alert
+    div.alert.alert-danger role="alert"
+      = flash[:alert]

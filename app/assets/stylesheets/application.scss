@@ -56,6 +56,7 @@ p {
 /*デフォルトボタンのレイアウト*/
 .btn-default {
   background: none;
+  padding: 0.4rem 0.9rem;
   border: 1px solid white;
   color: white;
   &:hover {
@@ -139,20 +140,93 @@ div.alert {
 }
 
 /* aboutセクション */
+#about {
+  height: 100%;
+}
 .about-contents {
-  padding: 3rem 1rem;
-  .contents-left {
+  h2 {
+    text-align: center;
+    font-weight: bold;
     margin-bottom: 2rem;
-    .description {
-      p {
-        font-size: 1.2rem;
+  }
+  padding: 1rem 0;
+  .introduction {
+    text-align: center;
+    img {
+      width: 40%;
+      margin: 0 auto;
+    }
+    .merits {
+      padding-top: 2rem;
+      padding-bottom: 4rem;
+      h3 {
+        margin-bottom: 1rem;
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+      .fas, .far {
+        margin-bottom: 1rem;
+        font-size: 3rem;
+      }
+      .merit {
+        margin: 0 auto;
+        .description {
+          width: 90%;
+        }
       }
     }
   }
-  .contents-right {
-    padding: 1rem 0 0 0;
-    img {
+  .follow-text {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  .how-to-use {
+    .step-1, .step-2, .step-3, .step-4 {
+      padding: 3rem 0;
+    }
+    .question {
       width: 100%;
+      margin-bottom: 1rem;
+      text-align: center;
+      height: 3rem;
+      padding-top: 1rem;
+      border-radius: 1.5rem;
+      color: white;
+      font-weight: bold;
+      background: #6c63ff;
+    }
+    .contents-left {
+      p {
+        font-size: 1.2rem;
+      }
+      padding-left: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .contents-right {
+      text-align: center;
+      img {
+        width: 70%;
+      }
+    }
+    .comment {
+      img {
+        width: 100%;
+      }
+      margin-bottom: 4rem;
+    }
+  }
+  .contents-bottom {
+    .buttons {
+      padding: 3rem 0;
+      margin: 0 auto;
+      width: 30%;
+      text-align: center;
+      a {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
     }
   }
 }
@@ -431,9 +505,29 @@ header {
 
 /* ユーザーログイン画面 */
 #login_form {
+  height: 100%;
   .alert {
     color: #ff6347;
     font-weight: bold;
+  }
+  .login-explanation {
+    text-align: center;
+    .explanation-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .explanation-list {
+      list-style: none;
+      font-size: 1.2rem;
+    }
+    background: #fff3b8;
+    color: #333;
+    padding: 1.5rem;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    border: 2px solid #333;
+    border-radius: 5px;
   }
 }
 
