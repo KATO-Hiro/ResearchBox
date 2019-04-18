@@ -3,6 +3,10 @@
 div.posts-index#posts-index
   div.container
     h2 記事一覧
+    div.post-button
+      = link_to new_post_path, class: "btn btn-primary" do
+        i.fas.fa-plus-circle
+        | 投稿する
     div.posts-menu
       div.sort-menu.btn-group
         button.btn.btn-primary.dropdown-toggle type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
@@ -21,14 +25,31 @@ div.posts-index#posts-index
               = link_to root_path do
                 i.fas.fa-redo-alt
 
-    div.row
-      - if @search_posts.any?
-        = render @search_posts
-      - else
-        = render @posts
+    - if @search_posts.empty?
+      div role="navigation"
+        ul.nav.nav-tabs
+          li.nab-item
+            = link_to "#tab1", data: {toggle: "tab"} , class: "nav-link active" do
+              i.fas.fa-rss-square
+              | フィード
+          li.nab-item
+            = link_to "#tab2", data: {toggle: "tab"}, class: "nav-link" do
+              i.fas.fa-fire
+              | 人気の記事
 
-    div.pagination-wrapper
-      - if @search_posts.any?
+      div.tab-content
+        div.posts#tab1.tab-pane.active
+          div.row
+            = render @posts
+          div.pagination-wrapper
+            = paginate @posts
+        div.stocks#tab2.tab-pane
+          div.row
+            = render partial: 'posts/post', collection: @stock_count_posts
+          div.pagination-wrapper
+            = paginate @stock_count_posts
+    - else
+      div.row
+        = render partial: 'posts/post', collection: @search_posts
+      div.pagination_wrapper
         = paginate @search_posts
-      - else
-        = paginate @posts

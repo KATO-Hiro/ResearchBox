@@ -7,10 +7,21 @@ div.posts-edit
     div.form-wrapper
       = form_with model: @post, local: true do |f|
         = render 'shared/error_messages', object: f.object
-        div.field.post-image-settings
-          = f.label :figures, "図 (形式：png jpg jpeg gif)"
-          br
-          = f.file_field :figures, multiple: true
+        div.field.figures-field
+          div.post-figures.row
+            - if @post.figures.any?
+              - @post.figures.each do |figure|
+                div.col-6.col-md-3.post-figure
+                  = image_tag figure.url, class: "post-figure"
+            - else
+              = image_tag "/assets/about1.png", class: "post-figure-default"
+          div.post-figures-settings
+            = f.label :remove_figures, "図を削除する"
+            = f.check_box :remove_figures
+            = f.label :figures, "図 (形式：png jpg jpeg gif　複数可)"
+            br
+            = f.file_field :figures, multiple: true
+            = f.hidden_field :figures_cache
         div.field
           = f.label :title, "論文のタイトル (必須)"
           br

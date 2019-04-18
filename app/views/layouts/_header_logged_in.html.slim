@@ -7,8 +7,10 @@ header
         img src="/assets/user_dummy.jpeg"
       p
         = current_user.name
+
     button.navbar-toggler type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation"
       i.navbar-toggler-icon
+
     div.collapse.navbar-collapse#navbarText
       ul.navbar-nav.ml-auto
         li.nav-item
@@ -16,13 +18,13 @@ header
             i.fas.fa-home
             | トップページ
         li.nav-item
-          = link_to users_path, class: "nav-link" do
-            i.fas.fa-users
-            | ユーザー一覧
-        li.nav-item
           = link_to new_post_path, class: "nav-link" do
             i.fas.fa-plus-circle
             | 投稿する
+        li.nav-item
+          = link_to users_path, class: "nav-link" do
+            i.fas.fa-users
+            | ユーザー一覧
         li.nav-item
           = link_to edit_user_registration_path, class: "nav-link" do
             i.fas.fa-user-cog

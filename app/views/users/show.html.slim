@@ -18,6 +18,7 @@ div.user-posts
           i.fas.fa-plus-circle
           | 投稿する
         hr
+
     div role="navigation"
       ul.nav.nav-tabs
         li.nab-item
@@ -25,7 +26,7 @@ div.user-posts
         li.nab-item
           = link_to "ストックした記事(#{@user.stocks.count})", "#tab2", data: {toggle: "tab"}, class: "nav-link"
 
-    div.posts-index.tab-content
+    div.tab-content
       div.posts#tab1.tab-pane.active
         div.row
           = render @posts
@@ -34,3 +35,5 @@ div.user-posts
       div.stocks#tab2.tab-pane
         div.row
           = render partial: 'posts/post', collection: @stocked_posts
+        div.pagination-wrapper
+          = paginate @stocked_posts

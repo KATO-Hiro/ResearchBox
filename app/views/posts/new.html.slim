@@ -7,10 +7,11 @@ div.posts-new
     div.form-wrapper
       = form_with model: @post, local: true do |f|
         = render 'shared/error_messages', object: f.object
-        div.field.post-image-settings
-          = f.label :figures, "図 (形式：png jpg jpeg gif)"
+        div.field.post-figures-settings
+          = f.label :figures, "図 (形式：png jpg jpeg gif 複数可)"
           br
           = f.file_field :figures, multiple: true
+          = f.hidden_field :figures_cache
         div.field
           = f.label :title, "論文のタイトル (必須)"
           br
