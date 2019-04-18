@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-before_action :authenticate_user!
+  #ログイン済みユーザーであるか検証
+  before_action :authenticate_user!
 
   def index
     @users = User.page(params[:page]).per(6)

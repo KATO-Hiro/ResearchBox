@@ -1,0 +1,13 @@
+div.row.shadow.comment
+  div.col-2.user-icon
+    - if comment.user.avatar.url
+      = image_tag(comment.user.avatar.url)
+    - else
+      = image_tag("/assets/user_dummy.jpeg")
+  div.col-10.user-detail
+    div.user-name
+      = link_to user_path(comment.user) do
+        p
+          = comment.user.name
+    div.comment-content
+      = comment.content

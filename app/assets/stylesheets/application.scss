@@ -589,5 +589,51 @@ header {
       background: #6c63ff;
     }
   }
+  .post-comments {
+    .pagination-wrapper {
+      @include pagination;
+    }
+    .comments-header {
+      width: 100%;
+      margin-bottom: 1rem;
+      text-align: center;
+      height: 3rem;
+      padding-top: 1rem;
+      border-radius: 1.5rem;
+      color: white;
+      font-weight: bold;
+      background: #6c63ff;
+    }
+    .comment-button {
+      margin-left: auto;
+      margin-bottom: 1rem;
+      text-align: right;
+    }
+  }
+  .comment {
+    padding: 1rem 0;
+    width: 100%;
+    margin: 0 auto;
+    background: #fff;
+    margin-bottom: 1rem;
+    .user-icon {
+      margin-right: -2rem;
+      text-align: center;
+      img {
+        margin: 0 auto;
+        width: 60%;
+        border-radius: 50%;
+      }
+    }
+    .comment-content {
+      word-wrap: break-word;
+    }
+    .user-name {
+      a {
+        color: #333;
+        @include link;
+      }
+    }
+  }
 }
 

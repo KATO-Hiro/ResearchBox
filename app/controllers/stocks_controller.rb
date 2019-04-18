@@ -1,5 +1,6 @@
 class StocksController < ApplicationController
-  before_action :authenticate_user! #ログインユーザーかどうかの検証
+  #ログインユーザーかどうかの検証
+  before_action :authenticate_user!
 
   def create
     @user = Post.find_by(id: params[:post_id]).user

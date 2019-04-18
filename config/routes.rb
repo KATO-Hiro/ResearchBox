@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   resources :posts, only: [:show, :new, :edit, :update, :create, :destroy] do
     resources :stocks, only: [:create, :destroy]
+    resources :comments, only: [:create]
   end
 end

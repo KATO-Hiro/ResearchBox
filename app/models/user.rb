@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :stocks, dependent: :destroy
   has_many :stocked_posts, through: :stocks, source: :post
+  has_many :comments, dependent: :destroy
+  has_many :commented_posts, through: :comments, source: :comment
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
