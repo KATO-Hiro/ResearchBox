@@ -2,12 +2,6 @@
 div#login_form
   div.container
     = render 'layouts/header_not_logged_in'
-    -if notice
-      div.notice
-        = flash[:notice]
-    - elsif alert
-      div.alert
-        = flash[:alert]
     div.form-wrapper
       h2
         | ログイン

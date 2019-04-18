@@ -12,7 +12,6 @@ describe "新規ユーザー登録機能", type: :system, js: true do
       fill_in "パスワード", with: "password"
       fill_in "確認用パスワード", with: "password"
       click_button "登録する"
-      expect(current_path).to eq(root_path)
       expect(page).to have_css('div.notice')
     end
   end
