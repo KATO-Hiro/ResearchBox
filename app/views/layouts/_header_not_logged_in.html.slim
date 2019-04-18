@@ -12,4 +12,10 @@ div.row.top-header
       li
         = link_to about_path do
           i.fas.fa-book-open
-          | 使い方
+          | ResearchBoxとは
+- if notice
+  div.notice
+    = flash[:notice]
+- elsif alert
+  div.alert
+    = flash[:alert]

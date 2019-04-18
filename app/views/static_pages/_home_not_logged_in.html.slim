@@ -2,20 +2,14 @@
 section#top.top
     div.container
       = render 'layouts/header_not_logged_in'
-      -if notice
-        div.notice
-          = flash[:notice]
-      - elsif alert
-        div.alert
-          = flash[:alert]
       div.row.top-contents
         div.col-md-8.contents-left
           div.text
             p 「学びを」 まとめよう
             p 「学びを」 シェアしよう
           div.description
-            p 「ReserchBox」は読んだ論文を管理・公開するサービスです。
-            p 「ReserchBox」はあなたの「学び」を財産にしてくれるでしょう。
+            p 「ResearchBox」は読んだ論文を管理・公開するサービスです。
+            p 「ResearchBox」はあなたの「学び」を財産にしてくれるでしょう。
         div.col-md-4.contents-right
           img src="/assets/top1.svg" alt="top-image"
         div.contents-bottom

@@ -1,10 +1,15 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user! #ログインユーザーであるか検証
-  before_action :correct_user, only: [:edit, :update, :destroy] #記事編集権限を持っているか検証
+  #ログインユーザーであるか検証
+  before_action :authenticate_user!
+
+  #記事編集権限を持っているか検証
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def show
     @post = Post.find_by(id: params[:id])
     @stock = Stock.new
+    @comment = Comment.new
+    @comments = @post.comments.page(params[:page]).per(6)
   end
 
   def new

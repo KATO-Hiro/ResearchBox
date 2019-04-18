@@ -1,23 +1,94 @@
 - provide(:title, " About")
-section#about.top
+div#about.top
   div.container
     = render 'layouts/header_not_logged_in'
-      -if notice
-        div.notice
-          = flash[:notice]
-      - elsif alert
-        div.alert
-          = flash[:alert]
-    div.row.about-contents
-      div.col-7.contents-left
-        div.description
-          p あなたは読んだ論文をきちんと管理できていますか？
+    div.about-contents
+      div.introduction
+        h2 「ResearchBox」とは新しい時代の論文調査アプリです
+        img src="/assets/about3.svg"
+        div.merits.row
+          div.merit.col-6.col-md-4
+            div.title
+              h3
+                i.fas.fa-file-signature
+                br
+                | アウトプット学習
+            div.description
+              p
+                | 論文を読んだ後に、フォーマットに従い、内容をまとめます。文章化や要点の整理は、学習効率をアップさせます。
+          div.merit.col-6.col-md-4
+            div.title
+              h3
+                i.fas.fa-tasks
+                br
+                | 読んだ論文を管理
+            div.description
+              p
+                | これまで紙やPDF上に散らかっていた論文のメモを一元管理することができます。論文の内容を忘れても、すぐに参照できます。
+          div.merit.col-6.col-md-4
+            div.title
+              h3
+                i.far.fa-share-square
+                br
+                | 内容をシェア
+            div.description
+              p
+                | 自分が読んだ論文を記事にして他の人に簡単にシェアできます。記事にコメントすることで、内容について議論することもできます。
+      div.how-to-use
+        h2 「ResearchBox」の使い方
+        p.follow-text 次の4ステップで今すぐあなたは「ResearchBox」を使えるようになります
+        div.steps
+          div.step-1.row
+            div.col-5.contents-left
+              h3 Step.1
+              p 論文を読んで、6つの質問に答える
+            div.col-7.contents-right
+              div.question
+                p Q1. どんな論文？
+              div.question
+                p Q2. 先行研究と比べてどこがすごい？
+              div.question
+                p Q3. 技術や手法で重要な点はどこ？
+              div.question
+                p Q4. どうやって有効だと検証した？
+              div.question
+                p Q5. 議論はある？
+              div.question
+                p Q6. 次に読むべき論文は？
+          div.step-2.row
+            div.col-5.contents-left
+              h3 Step.2
+              p 記事を投稿して、みんなにシェアする
+              br
+              p 投稿ボタンを押してみましょう！
+            div.col-7.contents-right
+              img src="/assets/about4.svg"
+          div.step-3.row
+            div.col-5.contents-left
+              h3 Step.3
+              p 投稿を読んでみる
+              br
+              p もっと読むボタンを押してみましょう！
+            div.col-7.contents-right
+              img src="/assets/post-index.png"
+          div.step-4.row
+            div.col-5.contents-left
+              h3 Step.4
+              p 投稿にコメントしてみる
+              br
+              p コメントするボタンを押してみましょう！
+            div.col-7.contents-right.comment
+              img src="/assets/comment.png"
+      div.contents-bottom
+        h2 さっそくあなたも「ResearchBox」を使ってみませんか？
+        p.follow-text まずはテストユーザーでログインしてみましょう！
+        div.buttons
+          = link_to new_user_session_path, class: "btn btn-default shadow" do
+            i.fas.fa-sign-in-alt
+            | ログインする
           br
-          p 誰々さんの〇〇年の論文の要点をすぐに思い出せますか？
-          br
-          p 多くの人は紙やpdfファイルを探し、重い腰を上げてもう一度
-            読み直すでしょう。
-          br
-          p 「ReserchBox」を使えば、読んだ論文をすぐに参照できます。
-      div.col-5.contents-right
-        img src="/assets/about2.svg" alt="about-image"
+          = link_to new_user_registration_path, class: "btn btn-primary shadow" do
+            i.fas.fa-user-plus
+            | 新規登録する
+
+

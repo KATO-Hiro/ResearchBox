@@ -43,7 +43,7 @@ Capybara.register_driver :selenium_remote do |app|
         desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
             chromeOptions: {
                 args: [
-                    "window-size=600,400",
+                    "window-size=400,400",
                     "headless",
                 ]
             }
