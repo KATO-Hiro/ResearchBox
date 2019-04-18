@@ -8,24 +8,24 @@ div.posts-edit
       = form_with model: @post, local: true do |f|
         = render 'shared/error_messages', object: f.object
         div.field.post-image-settings
-          = f.label :figures
+          = f.label :figures, "図 (形式：png jpg jpeg gif)"
           br
           = f.file_field :figures, multiple: true
         div.field
-          = f.label :title
+          = f.label :title, "論文のタイトル (必須)"
           br
           = f.text_field :title, class: "form-control"
         div.post-detail
           div.field
-            = f.label :author
+            = f.label :author, "論文の著者 (必須)"
             br
             = f.text_field :author, class: "form-control"
           div.field
-            = f.label :year
+            = f.label :year, "論文の出版年 (選択してください)"
             br
             = f.date_select :year, start_year: 1960 , end_year: Time.zone.now.year,  discard_day: true, discard_month: true
         div.field
-        = f.label :abstract
+        = f.label :abstract, "どんな論文？ (必須)"
         br
         = f.text_area :abstract, rows: 5, class: "form-control"
         div.field

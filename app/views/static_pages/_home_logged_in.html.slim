@@ -12,7 +12,7 @@ div.posts-index#posts-index
             = sort_link(@search, :created_at, default_order: :desc)
           p.dropdown-item
             = sort_link(@search, :year)
-      div.search-form
+      div.search-form.col-8.col-xs-6.col-sm-4
         = search_form_for @search do |f|
           div.form-group.search-box
             = f.search_field :title_or_author_cont , placeholder: "記事を検索...", url: root_path, class: "form-control"

@@ -13,13 +13,13 @@ describe "ユーザーアカウント編集機能", type: :system, js: true do
 
   context "正しい情報を入力した時" do
     it "記事一覧ページにリダイレクトされる" do
-      fill_in "名前", with: @user.name
+      fill_in "名前", with: "New User Name"
       fill_in "メールアドレス", with: @user.email
       fill_in "パスワード", with: ""
       fill_in "確認用パスワード", with: ""
       click_button "アカウントを更新する"
       expect(page).to have_css("div.alert.alert-success", text: "アカウント情報を変更しました。")
-      expect(page).to have_content "記事一覧"
+      expect(page).to have_content("New User Name")
     end
 
     it "チェックボックスを入力するとアバターが削除されてデフォルトのアバターを使用" do

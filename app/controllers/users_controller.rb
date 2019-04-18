@@ -10,5 +10,6 @@ before_action :authenticate_user!
   def show
     @user = User.find_by(id: params[:id])
     @posts = @user.posts.page(params[:page]).per(6)
+    @stocked_posts = @user.stocked_posts
   end
 end

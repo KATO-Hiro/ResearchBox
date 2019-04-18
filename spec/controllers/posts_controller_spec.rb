@@ -117,7 +117,7 @@ RSpec.describe PostsController, type: :controller do
         post_params = FactoryBot.attributes_for(:post, title: "New Title")
         patch :update, params: {id: @post.id, post: post_params}
         expect(@post.reload.title).to eq("New Title")
-        expect(response).to redirect_to user_path(@user)
+        expect(response).to redirect_to root_path
       end
 
       it "他のユーザーがアクセスしたらリダイレクトさせる" do
@@ -146,7 +146,7 @@ RSpec.describe PostsController, type: :controller do
         expect {
           delete :destroy, params: {id: @post.id}
         }.to change(@user.posts, :count).by(-1)
-        expect(response).to redirect_to user_path(@user)
+        expect(response).to redirect_to root_path
       end
 
       it "他のユーザーがアクセスしたらリダイレクトさせる" do

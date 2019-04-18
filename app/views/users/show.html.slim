@@ -23,15 +23,14 @@ div.user-posts
         li.nab-item
           = link_to "投稿した記事(#{@user.posts.count})", "#tab1", data: {toggle: "tab"} , class: "nav-link active"
         li.nab-item
-          = link_to "ストックした記事", "#tab2", data: {toggle: "tab"}, class: "nav-link"
+          = link_to "ストックした記事(#{@user.stocks.count})", "#tab2", data: {toggle: "tab"}, class: "nav-link"
 
     div.posts-index.tab-content
       div.posts#tab1.tab-pane.active
         div.row
-          - if @user.posts.any?
-            = render @posts
+          = render @posts
         div.pagination-wrapper
           = paginate @posts
       div.stocks#tab2.tab-pane
         div.row
-          div.col-6.col-lg-4
+          = render partial: 'posts/post', collection: @stocked_posts
