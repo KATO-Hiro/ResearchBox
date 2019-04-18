@@ -17,6 +17,8 @@ div.user-settings
               = image_tag "/assets/user_dummy.jpeg", class: "user-avatar-default"
           = f.label :remove_avatar
           = f.check_box :remove_avatar
+          br
+          = f.label :avatar, "プロフィール画像 (形式：png jpg jpeg gif)"
           = f.file_field :avatar
           = f.hidden_field :avatar_cache
         .field

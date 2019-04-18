@@ -64,6 +64,11 @@ p {
   }
 }
 
+/* alertの調整 */
+div.alert {
+  margin-bottom: 0;
+}
+
 /* トップページ　*/
 /* topセクション */
 .top {
@@ -182,6 +187,7 @@ header {
 
 /* 記事一覧ページ */
 .posts-index {
+  background: #f0efff;
   padding: 2rem 0;
   h2 {
     @include heading;
@@ -244,6 +250,9 @@ header {
         @include link
       }
     }
+    .post-date {
+      margin-bottom: -0.5rem;
+    }
     img {
       width: 100%;
       height: auto;
@@ -278,7 +287,7 @@ header {
     display: flex;
     justify-content: flex-end;
   }
-  .fa-edit, .fa-trash-alt, .fa-arrow-alt-circle-down {
+  .fa-edit, .fa-trash-alt, .fa-folder, .fa-folder-open {
     padding-top: 0.3rem;
     margin-left: 0.5rem;
     color: #333;
@@ -289,6 +298,7 @@ header {
 
 /* ユーザー詳細ページ */
 .user-posts {
+  background: #f0efff;
   padding: 2rem 0;
   h2 {
     text-align:center;
@@ -325,6 +335,7 @@ header {
 
 /* ユーザー一覧ページ */
 .users-index {
+  background: #f0efff;
   padding: 2rem 0;
   h2 {
     @include heading;
@@ -349,35 +360,34 @@ header {
       }
     }
   }
-}
-
-.user {
-  margin-bottom: 1rem;
-  img {
-    padding: 0.5rem 0;
-    width: 70%;
-    height: auto;
-    border-radius: 50%;
-  }
-
-  .user-detail {
-    a{
-      color: #333;
-      text-align: left;
-      @include link;
+  .user {
+    background: #fff;
+    margin-bottom: 1rem;
+    img {
+      padding: 0.5rem 0;
+      width: 70%;
+      height: auto;
+      border-radius: 50%;
     }
-    p {
-      font-size: 1.5rem;
-      transform: translateY(50%);
+    .user-detail {
+      a{
+        color: #333;
+        text-align: left;
+        @include link;
+      }
+      p {
+        font-size: 1.5rem;
+        transform: translateY(50%);
+      }
     }
-  }
-  .user-menu {
-    display: flex;
-    justify-content: flex-end;
-    a {
-      font-size: 1rem;
-      margin-right: 0.5rem;
-      margin-bottom: 0.5rem;
+    .user-menu {
+      display: flex;
+      justify-content: flex-end;
+      a {
+        font-size: 1rem;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
     }
   }
 }
@@ -438,7 +448,8 @@ header {
     margin: 0 auto;
   }
   .user-icon-settings {
-    width: 300px;
+    padding-bottom: 2rem;
+    width: 350px;
     margin: 0 auto;
     .user-icon {
       text-align:center;
@@ -468,6 +479,7 @@ header {
 
 /* 投稿編集画面 */
 .posts-edit, .posts-new {
+  background: #f0efff;
   .post-image-settings {
     width: 300px;
     margin: 0 auto;
@@ -486,6 +498,7 @@ header {
 
 /* 投稿詳細画面 */
 .posts-show {
+  background: #f0efff;
   .post-title {
     font-size: 2rem;
     margin-bottom: 2rem;
@@ -532,9 +545,6 @@ header {
     justify-content: space-between;
     h3 {
       font-size: 1.5rem;
-    }
-    .author {
-      font-family: "Times New Roman", Times, serif;
     }
   }
   .post-contents {

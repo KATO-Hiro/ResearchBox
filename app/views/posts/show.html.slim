@@ -9,11 +9,16 @@ div.posts-show
       div.post-owner-menu
         = link_to edit_post_path(@post)  do
           i.far.fa-edit
-        = link_to post_path(@post), data: { confirm: "Are you sure?" }, method: :delete do
+        = link_to post_path(@post), method: :delete do
           i.far.fa-trash-alt
     - else
-      = link_to "#" do
-        i.fas.fa-arrow-alt-circle-down
+      div.post-owner-menu
+        - if current_user.already_stocked?(@post)
+          = link_to post_stock_path(@post), method: :delete do
+            i.fas.fa-folder-open
+        - else
+          = link_to post_stocks_path(@post), data: { confirm: "Are you sure?" }, method: :post do
+            i.fas.fa-folder
     div.post-info
       h3.author
         = @post.author

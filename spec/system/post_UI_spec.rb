@@ -22,11 +22,12 @@ describe "記事詳細ページ、記事一覧ページのUI", type: :system, js
     end
 
     context "他のユーザーから見た時" do
-      it "編集と削除を行うためのリンクが表示されない" do
+      it "編集と削除を行うためのリンクが表示されず、ストックを行うためのリンクが表示される" do
         sign_in @other_user
         visit post_path(id: @post.id)
         expect(page).not_to have_link(nil, href: edit_post_path(id: @post.id))
         expect(page).not_to have_selector 'a[data-method=delete]'
+        expect(page).to have_link(nil, href: post_stocks_path(post_id: @post.id))
       end
     end
   end
