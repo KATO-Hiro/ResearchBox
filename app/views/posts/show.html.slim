@@ -84,21 +84,22 @@ div.posts-show
         div.comment-button
           button.btn.btn-primary type="button" data-toggle="modal" data-target="#commentModal"
             i.far.fa-comment-dots
-            |コメントを作成する
+            |コメントする
         div.modal#commentModal tabindex="-1" role="dialog" aria-lablledby="commentModalLabel" aria-hidden="true"
           div.modal-dialog role="document"
             div.modal-content
               div.modal-header
                 h5.modal-title#commentModalLabel
-                  | コメント(140文字以内)
+                  | コメントを作成
                 button.close data-dismiss="modal" area-label="Close"
                   span area-hidden="true" &times;
               div.modal-body
                 = form_with model: @comment, url: post_comments_path(@post), local: true do |f|
                   div.field
+                    = f.label :content, "内容(140文字以内)"
                     = f.text_area :content, rows: 5, class: "form-control"
                   div.actions
-                    = f.submit "投稿する", class: "btn btn-primary form-control"
+                    = f.submit "この内容でコメントする", class: "btn btn-primary form-control"
 
         = render partial: 'posts/comment', collection: @comments
         div.pagination-wrapper

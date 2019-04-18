@@ -46,6 +46,10 @@ div.user-settings
           = f.label :password_confirmation
           br
           = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"
+        .field
+          = f.label :current_password, "現在のパスワードを入力(パスワードを変更する場合)"
+          br
+          = f.password_field :current_password, autocomplete: "current_password", class: "form-control"
         .actions
           = f.submit "アカウントを更新する", class: "btn btn-primary form-control"
 

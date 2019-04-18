@@ -2,6 +2,6 @@ FactoryBot.define do
   factory :comment do
     content { "Content for Comment" }
     post
-    user {post.user}
+    user
   end
 end
