@@ -45,7 +45,7 @@ url: https://blooming-depths-66785.herokuapp.com
   - Heroku
 - DB
   - PostgresQL
-- CI / CD
+- CI / CDパイプラインの構築
   - CircleCI
 - フロント開発
   - Bootstrap
@@ -80,6 +80,6 @@ url: https://blooming-depths-66785.herokuapp.com
   - 他のユーザー投稿詳細ページの下層部の「コメントする」ボタンをクリック
 ## 開発者
 Kei Fujikawa  
-Twitter: https://twitter.com/kei_f_1996
+Twitter: https://twitter.com/kei_f_1996  
 Qiita: https://qiita.com/kei_f_1996  
 GitHub: https://github.com/tenguuweb  
