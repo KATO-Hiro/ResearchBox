@@ -3,6 +3,17 @@
 div.users-index
   div.container
     h2 ユーザー一覧
+    div.user-menu
+      = link_to user_path(current_user) do
+        i.fas.fa-user
+        | マイページ
+      = link_to root_path do
+        i.fas.fa-home
+        | トップページ
+      = link_to new_post_path do
+        i.fas.fa-plus-circle
+        | 投稿する
+      hr
     = search_form_for @search do |f|
       div.form-group.search-box
         = f.search_field :name_cont , placeholder: "ユーザーを検索...", url: users_path, class: "form-control"
@@ -16,8 +27,8 @@ div.users-index
           = render @search_users
         - else
           = render @users
-        div.pagination-wrapper
-          - if @search_users.any?
-            = paginate @search_users
-          - else
-            = paginate @users
+    div.pagination-wrapper
+      - if @search_users.any?
+        = paginate @search_users
+      - else
+        = paginate @users

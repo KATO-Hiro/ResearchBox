@@ -43,7 +43,7 @@ RSpec.describe Post, type: :model do
     end
 
     it "タイトルの文字数" do
-      @post.title = "a"*51
+      @post.title = "a"*101
       expect(@post).not_to be_valid
     end
   end
