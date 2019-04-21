@@ -63,7 +63,8 @@ url: https://blooming-depths-66785.herokuapp.com
 - Rails: 5.2.2.1
 - Ruby: 2.6.2
 - Bootstrap: 4.3.1
-- devise: 3.8
+- RSpec 3.8
+
 ## 使いかた
 - [使い方の説明](https://blooming-depths-66785.herokuapp.com/about)
 - [こちら](https://blooming-depths-66785.herokuapp.com/users/sign_in)にアクセスし、テストユーザーでログイン
@@ -79,6 +80,6 @@ url: https://blooming-depths-66785.herokuapp.com
   - 他のユーザー投稿詳細ページの下層部の「コメントする」ボタンをクリック
 ## 開発者
 Kei Fujikawa  
-Twitter: @kei_f_1996  
+Twitter: https://twitter.com/kei_f_1996
 Qiita: https://qiita.com/kei_f_1996  
 GitHub: https://github.com/tenguuweb  
