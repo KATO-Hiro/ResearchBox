@@ -25,6 +25,20 @@
   margin-bottom: 2rem;
 }
 
+@mixin user-menu {
+  font-size: 1.2rem;
+  text-align: right;
+  a {
+    margin-right: 1rem;
+    color: #333;
+    @include link;
+  }
+  margin-bottom: 2rem;
+  hr {
+    border-width: 2px;
+  }
+}
+
 @mixin pagination {
   padding: 3rem;
     text-align: center;
@@ -401,17 +415,7 @@ header {
     }
   }
   .user-menu {
-    font-size: 1.2rem;
-    text-align: right;
-    a {
-      margin-right: 1rem;
-      color: #333;
-      @include link;
-    }
-    margin-bottom: 2rem;
-    hr {
-      border-width: 2px;
-    }
+    @include user-menu;
   }
   .pagination-wrapper {
     @include pagination;
@@ -425,6 +429,9 @@ header {
   padding: 2rem 0;
   h2 {
     @include heading;
+  }
+  .user-menu {
+    @include user-menu;
   }
   .pagination-wrapper {
     @include pagination;
@@ -466,7 +473,7 @@ header {
         transform: translateY(50%);
       }
     }
-    .user-menu {
+    .user-show-menu {
       display: flex;
       justify-content: flex-end;
       a {
@@ -568,6 +575,9 @@ header {
       }
     }
   }
+  .user-menu {
+    @include user-menu;
+  }
 }
 
 .form-wrapper {
@@ -580,6 +590,9 @@ header {
   padding: 2rem 0;
   h2 {
     @include heading;
+  }
+  .user-menu {
+    @include user-menu;
   }
 }
 

@@ -11,12 +11,15 @@ div.user-posts
         = image_tag("/assets/user_dummy.jpeg")
     - if current_user == @user
       div.user-menu
-        = link_to edit_user_registration_path do
-          i.fas.fa-user-cog
-          | アカウント設定
+        = link_to root_path do
+          i.fas.fa-home
+          | トップページ
         = link_to new_post_path do
           i.fas.fa-plus-circle
           | 投稿する
+        = link_to edit_user_registration_path do
+          i.fas.fa-user-cog
+          | アカウント設定
         hr
 
     div role="navigation"

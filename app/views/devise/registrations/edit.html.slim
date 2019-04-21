@@ -5,7 +5,17 @@ div.user-settings
   div.container
     h2.text-center.font-weight-bold
       | アカウント設定
-
+    div.user-menu
+      = link_to user_path(current_user) do
+        i.fas.fa-user
+        | マイページ
+      = link_to root_path do
+        i.fas.fa-home
+        | トップページ
+      = link_to new_post_path do
+        i.fas.fa-plus-circle
+        | 投稿する
+      hr
     div.form-wrapper
       = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
         = render "devise/shared/error_messages", resource: resource
@@ -53,5 +63,8 @@ div.user-settings
         .actions
           = f.submit "アカウントを更新する", class: "btn btn-primary form-control"
 
-      = button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger form-control"
+        - if current_user.email == "test@research.box"
+            = button_to "テストユーザーはアカウントを削除できません", "#", class: "btn btn-danger form-control account-destroy", disabled: true
+        - else
+            = button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger form-control"
 

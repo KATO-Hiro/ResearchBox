@@ -4,6 +4,17 @@ div.posts-edit
   div.container
     h2
       | 投稿の編集
+    div.user-menu
+      = link_to user_path(current_user) do
+        i.fas.fa-user
+        | マイページ
+      = link_to root_path do
+        i.fas.fa-home
+        | トップページ
+      = link_to new_post_path do
+        i.fas.fa-plus-circle
+        | 投稿する
+      hr
     div.form-wrapper
       = form_with model: @post, local: true do |f|
         = render 'shared/error_messages', object: f.object

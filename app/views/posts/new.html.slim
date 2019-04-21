@@ -4,6 +4,14 @@ div.posts-new
   div.container
     h2
       | 新規投稿
+    div.user-menu
+      = link_to user_path(current_user) do
+        i.fas.fa-user
+        | マイページ
+      = link_to root_path do
+        i.fas.fa-home
+        | トップページ
+      hr
     div.form-wrapper
       = form_with model: @post, local: true do |f|
         = render 'shared/error_messages', object: f.object
