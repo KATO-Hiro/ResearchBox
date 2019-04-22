@@ -6,10 +6,11 @@ class PostsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def show
+    items_per_page = 6
     @post = Post.find_by(id: params[:id])
     @stock = Stock.new
     @comment = Comment.new
-    @comments = @post.comments.page(params[:page]).per(6)
+    @comments = @post.comments.page(params[:page]).per(items_per_page)
   end
 
   def new
