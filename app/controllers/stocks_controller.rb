@@ -3,14 +3,19 @@ class StocksController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @user = Post.find_by(id: params[:post_id]).user
-    @stock = current_user.stocks.build(post_id: params[:post_id])
-    if @user.id == @stock.user.id
-      flash[:alert] = "自分の記事はストックできません。"
-      redirect_back(fallback_location: root_path)
+    @user = Post.find(params[:post_id]).user
+    if @user
+      @stock = current_user.stocks.build(post_id: params[:post_id])
+      if @user.id == @stock.user.id
+        flash[:alert] = "自分の記事はストックできません。"
+        redirect_back(fallback_location: root_path)
+      else
+        @stock.save
+        flash[:notice] = "記事をストックしました。"
+        redirect_back(fallback_location: root_path)
+      end
     else
-      @stock.save
-      flash[:notice] = "記事をストックしました。"
+      flash[:alert] = "記事またはユーザーが見つかりませんでした。"
       redirect_back(fallback_location: root_path)
     end
   end
