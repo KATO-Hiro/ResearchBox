@@ -6,10 +6,11 @@ class PostsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def show
-    @post = Post.find_by(id: params[:id])
+    items_per_page = 6
+    @post = Post.find(params[:id])
     @stock = Stock.new
     @comment = Comment.new
-    @comments = @post.comments.page(params[:page]).per(6)
+    @comments = @post.comments.page(params[:page]).per(items_per_page)
   end
 
   def new
@@ -17,11 +18,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = current_user.posts.find_by(id: params[:id])
+    @post = current_user.posts.find(params[:id])
   end
 
   def update
-    @post = current_user.posts.find_by(id: params[:id])
+    @post = current_user.posts.find(params[:id])
     if @post.update_attributes(post_params)
       flash[:notice] = "記事を編集しました。"
       redirect_to root_path
@@ -41,7 +42,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = current_user.posts.find_by(id: params[:id])
+    @post = current_user.posts.find(params[:id])
     @post.destroy
     flash[:notice] = "記事を削除しました。"
     redirect_to root_path
@@ -55,7 +56,7 @@ class PostsController < ApplicationController
     end
 
     def correct_user
-      @post = Post.find_by(id: params[:id])
+      @post = Post.find(params[:id])
       @user = @post.user
       unless @user == current_user
       flash[:alert] = "権限がありません"
