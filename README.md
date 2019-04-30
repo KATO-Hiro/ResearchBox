@@ -8,6 +8,8 @@ url: https://blooming-depths-66785.herokuapp.com
 - 紙やpdfで論文のメモを作成した場合と比較して、散逸しにくい、情報が抽出しやすいため、管理に適している。  
 - 読んだ論文のメモを他のユーザーに紹介できる、即ち知的財産の共有が可能。  
 
+フォーマットの引用元： https://www.slideshare.net/Ochyai/1-ftma15
+
 ### デモ画像
 <img width=40% src="https://user-images.githubusercontent.com/46975885/56392952-db32af00-626d-11e9-87b4-a501d2db0d07.png"><img width=40% src="https://user-images.githubusercontent.com/46975885/56392942-d4a43780-626d-11e9-9f58-ba1150c2e697.png"><img width=40% src="https://user-images.githubusercontent.com/46975885/56392959-dff76300-626d-11e9-9fdb-6c0790bfc67f.png"><img width=40% src="https://user-images.githubusercontent.com/46975885/56392966-e4bc1700-626d-11e9-929f-81b8d9e5e874.png">
 
