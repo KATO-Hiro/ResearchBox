@@ -80,8 +80,3 @@ url: https://blooming-depths-66785.herokuapp.com
   - 記事一覧ページまたは他人の詳細ページから、記事カードのフッター部分にあるストックボタンをクリック
 - 他のユーザーの投稿にコメントする
   - 他のユーザー投稿詳細ページの下層部の「コメントする」ボタンをクリック
-## 開発者
-Kei Fujikawa  
-Twitter: https://twitter.com/kei_f_1996  
-Qiita: https://qiita.com/kei_f_1996  
-GitHub: https://github.com/tenguuweb  
